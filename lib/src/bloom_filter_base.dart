@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'dart:math';
 
 import 'package:crypto/crypto.dart';
@@ -10,12 +11,12 @@ class BloomFilter<E> {
   final int k;
   BitArray filter;
 
-  BloomFilter._(this.filter, this.k, Iterable<int> Function(E)? hashCodes)
+  BloomFilter._(this.filter, this.k, Iterable<int> Function(E) hashCodes)
       : hash = hashCodes ?? ((E e) => extendedDoubleHash(md5hashes(e.hashCode)));
 
-  BloomFilter(int size, int k, {Iterable<int> Function(E)? hashCodes}) : this._(BitArray(size), k, hashCodes);
+  BloomFilter(int size, int k, {Iterable<int> Function(E) hashCodes}) : this._(BitArray(size), k, hashCodes);
 
-  BloomFilter.fromBytes(List<int> bytes, int k, {Iterable<int> Function(E)? hashCodes})
+  BloomFilter.fromBytes(List<int> bytes, int k, {Iterable<int> Function(E) hashCodes})
       : this._(BitArray.fromBytes(bytes), k, hashCodes);
 
   List<int> toBytes() => filter.toBytes();

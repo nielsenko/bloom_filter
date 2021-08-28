@@ -49,7 +49,7 @@ void main() {
   });
 
   group('false positives', () {
-    final hashes = <String, Iterable<int> Function(int)?>{
+    final hashes = <String, Iterable<int> Function(int)>{
       'default': null,
       'hashCode and fnv1a64': (i) => extendedDoubleHash([i.hashCode, fnv1a64(i)]),
       'md5': (i) => extendedDoubleHash(md5hashes(i)),
