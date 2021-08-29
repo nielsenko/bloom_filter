@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:bloom_filter/src/bit_array.dart';
 import 'package:test/test.dart';
 
@@ -21,5 +23,11 @@ void main() {
       checkRange(a, 0, i, false);
       checkRange(a, i + 1, max - 1, true);
     }
+  });
+
+  test('(de)serialize', () {
+    final r = Random(42);
+    final bytes = List<int>.generate(1000, (index) => r.nextInt(256));
+    expect(BitArray.fromBytes(bytes).toBytes(), bytes);
   });
 }

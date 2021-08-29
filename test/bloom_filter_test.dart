@@ -42,6 +42,12 @@ void main() {
     }
   });
 
+  test('(de)serialize', () {
+    final r = Random(42);
+    final bytes = List<int>.generate(10000, (index) => r.nextInt(256));
+    expect(BloomFilter.fromBytes(bytes, 7).toBytes(), bytes);
+  });
+
   group('false positives', () {
     final hashes = <String, Iterable<int> Function(int)?>{
       'default': null,

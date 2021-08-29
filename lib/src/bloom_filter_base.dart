@@ -15,6 +15,11 @@ class BloomFilter<E> {
 
   BloomFilter(int size, int k, {Iterable<int> Function(E)? hashCodes}) : this._(BitArray(size), k, hashCodes);
 
+  BloomFilter.fromBytes(List<int> bytes, int k, {Iterable<int> Function(E)? hashCodes})
+      : this._(BitArray.fromBytes(bytes), k, hashCodes);
+
+  List<int> toBytes() => filter.toBytes();
+
   int get size => filter.size;
 
   void add(E e) {

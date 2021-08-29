@@ -1,13 +1,13 @@
 name: bloom_filter
-description: A starting point for Dart libraries or applications.
+description: A bloom filter for Dart developers
 version: 1.0.0
-# homepage: https://www.example.com
+homepage: https://github.com/nielsenko/bloom_filter
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: '>=2.13.0 <3.0.0'
 
 dependencies:
-  crypto: any
+  crypto: ^3.0.0
 
 dev_dependencies:
   pedantic: ^1.10.0
