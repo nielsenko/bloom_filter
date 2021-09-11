@@ -57,7 +57,7 @@ void main() {
     };
 
     for (final h in hashes.entries) {
-      test('${h.key}', () {
+      test(h.key, () {
         final m = 10000;
         final n = 1000;
         final k = (m / n * ln2).ceil();
